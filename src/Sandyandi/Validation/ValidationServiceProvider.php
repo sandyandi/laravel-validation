@@ -1,4 +1,4 @@
-<?php namespace Cohensive\Validation;
+<?php namespace Sandyandi\Validation;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\DatabasePresenceVerifier;

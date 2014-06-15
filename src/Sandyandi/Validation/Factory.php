@@ -1,5 +1,5 @@
 <?php
-namespace Cohensive\Validation;
+namespace Sandyandi\Validation;
 
 use Illuminate\Validation\Factory as BaseFactory;
 
