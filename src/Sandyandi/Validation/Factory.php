@@ -1,17 +1,9 @@
-<?php
-namespace Sandyandi\Validation;
+<?php namespace Sandyandi\Validation;
 
 use Illuminate\Validation\Factory as BaseFactory;
 
 class Factory extends BaseFactory
 {
-
-	/**
-	 * All of the custom validator replacements.
-	 *
-	 * @var array
-	 */
-	protected $replacements = array();
 
 	/**
 	 * Create a new Validator instance.
@@ -42,7 +34,6 @@ class Factory extends BaseFactory
 		}
 
 		$this->addExtensions($validator);
-		$validator->addReplacements($this->replacements);
 
 		return $validator;
 	}
@@ -66,18 +57,6 @@ class Factory extends BaseFactory
 		{
 			return call_user_func($this->resolver, $this->translator, $data, $rules, $messages, $customAttributes);
 		}
-	}
-
-	/**
-	 * Register a custom validator replacement.
-	 *
-	 * @param  string  $rule
-	 * @param  Closure|string  $replacements
-	 * @return void
-	 */
-	public function extendReplacement($rule, $replacement)
-	{
-		$this->replacements[$rule] = $replacement;
 	}
 
 }
