@@ -18,10 +18,5 @@
 			"Sandyandi\\Validation": "src/"
 		}
 	},
-	"minimum-stability": "dev",
-	"extra": {
-        "branch-alias": {
-            "dev-master": "4.1.x-dev"
-        }
-    }
+	"minimum-stability": "dev"
 }
