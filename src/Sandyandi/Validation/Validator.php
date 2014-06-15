@@ -217,6 +217,29 @@ class Validator extends BaseValidator implements MessageProviderInterface
 	}
 
 	/**
+	 * Transform an attribute to colon-notation if a colon exists.
+	 * @param  string $attribute
+	 * @return string
+	 */
+	protected function transformAttribute($attribute)
+	{
+		return strpos($attribute, ':') !== false ? preg_replace('/:((\d+)|(\*)):/', ':', $attribute) : $attribute;
+	}
+
+	/**
+	 * Get the displayable name of the attribute.
+	 *
+	 * @param  string  $attribute
+	 * @return string
+	 */
+	protected function getMessage($attribute, $rule)
+	{
+		$attribute = $this->transformAttribute($attribute);
+
+		return parent::getMessage($attribute, $rule);
+	}
+
+	/**
 	 * Get the displayable name of the attribute.
 	 *
 	 * @param  string  $attribute
@@ -224,9 +247,7 @@ class Validator extends BaseValidator implements MessageProviderInterface
 	 */
 	protected function getAttribute($attribute)
 	{
-		if (strpos($attribute, ':') !== false) {
-			$attribute = preg_replace('/:((\d+)|(\*)):/', ':', $attribute);
-		}
+		$attribute = $this->transformAttribute($attribute);
 
 		return parent::getAttribute($attribute);
 	}
