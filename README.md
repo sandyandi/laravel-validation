@@ -6,10 +6,13 @@ This is a slightly modified version of KaneCohen's [laravel-validation](https://
 
 1. Add the following to your `require` `composer.json` file:
 
- `"sandyandi/validation": "dev-master"`
+ ```
+ "cohensive/validation": "dev-master",
+ "sandyandi/validation": "1.0.*@dev"
+ ```
 
 2. Run `composer update` and wait for it to download and install.
-3. Open `app/config/app.php`, comment out Laravel's default validation service provider: `'Illuminate\Validation\ValidationServiceProvider',` and add this library's service provider `'Sandyandi\Validation\ValidationServiceProvider',`
+3. Open `app/config/app.php`, comment out Laravel's default validation service provider: `'Illuminate\Validation\ValidationServiceProvider',` and add this library's service provider: `'Sandyandi\Validation\ValidationServiceProvider',`
 
 ## Usage
 
@@ -21,12 +24,12 @@ The modification made to this library are the following:
 
  ```php
  $rules = array(
-        'income_sources:0:employer_name' => 'required',
-        'income_sources:1:employer_name' => 'required'
+      'income_sources:0:employer_name' => 'required',
+      'income_sources:1:employer_name' => 'required'
  );
  ```
 
- If the validation fails, you can know which `employer_name` failed the validation as it has an index and you can show it's individual error message using something like:
+ If the validation fails, you can know which `employer_name` failed the validation as it has an index and you can show its individual error message using something like:
 
  ```php
  $errors->has('income_sources:0:employer_name');
@@ -44,7 +47,7 @@ The modification made to this library are the following:
 
  ```php
  'custom' => array(
-        'income_sources:employer_name' => 'Please let us know who your employer is.'
+      'income_sources:employer_name' => 'Please let us know who your employer is.'
  )
  ```
 
@@ -52,7 +55,7 @@ The modification made to this library are the following:
 
  ```php
  'attributes' => array(
-        'income_sources:employer_name' => 'employer name.'
+      'income_sources:employer_name' => 'employer name.'
  )
  ```
 
